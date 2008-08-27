@@ -17,4 +17,15 @@ This will add the simple_search class method to your model:
 Product.simple_search(terms, :conditions => "active = TRUE")
 
 
+The second argument accepts an options hash which will be passed on to
+Product.find()
+
+NOTE:
+Currently, the :conditions parameter only accepts a string. This means that
+it is dangerous to pass user-submitted data to the conditions hash because it
+is not being cleaned like it is when you do the following:
+find(:all, :conditions => ["name = ?", params[:name]])
+
+Therefore, only hard-coded conditions should be passed in this parameter.
+
 Copyright (c) 2008 Alex Sharp, released under the MIT license

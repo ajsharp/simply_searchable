@@ -1,0 +1,20 @@
+SimplySearchable
+================
+
+SimplySearchable adds very basic search functionality to ActiveRecord models. It is especially useful if you need to search relatively small collections of data that it doesn't make sense to index, such as product names.
+
+Example
+=======
+
+In an ActiveRecord model:
+
+class Product < ActiveRecord::Base
+	simply_searchable :title => :name, :summary => :description
+end
+
+This will add the simple_search class method to your model:
+
+Product.simple_search(terms, :conditions => "active = TRUE")
+
+
+Copyright (c) 2008 Alex Sharp, released under the MIT license

@@ -51,13 +51,15 @@ module SimplySearchable
   
   
   module InstanceMethods
+    def breadcrumbs
+      "#{self.class.name} > "
+    end
+    
     def ss_summary
-      # self.class.read_inheritable_attribute :summary_field
       self.send(self.class.read_inheritable_attribute :summary_field)
     end
     
     def ss_title
-      # self.class.read_inheritable_attribute :title_field
       self.send(self.class.read_inheritable_attribute :title_field)
     end
   end # end of InstanceMethods
